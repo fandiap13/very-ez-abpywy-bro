@@ -55,7 +55,7 @@ app.get("/checkout", async (req, res) => {
       last_name: "Az",
       email: "fandiaz@gmail.com",
       phone: "089423157675",
-      amount: 0.01,
+      amount: items.reduce((data, item) => data + item.price, 0),
       purchase_type: "purchase",
       payment_option: "abapay_khqr",
       items: encodeUsingBase64(items),
@@ -65,7 +65,7 @@ app.get("/checkout", async (req, res) => {
       // custom_fields: null,
       // return_params: null,
       // lifetime: 6,
-      qr_image_template: "template2_color",
+      qr_image_template: "template3_color",
     };
 
     console.log({ payload });
